@@ -20,6 +20,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 1rem;
 }
 
 /* LAYOUT */
@@ -29,7 +30,6 @@ main {
   height: 60rem;
   background-color: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(200px);
-  filter: blur();
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
   border-radius: 9px;
   overflow: hidden;
@@ -54,6 +54,8 @@ main {
   word-spacing: 2px;
   font-weight: 300;
   margin-bottom: 1rem;
+  text-align: center;
+  word-break: break-word;
 }
 
 .score {
@@ -99,7 +101,7 @@ main {
   font-size: 3.5rem;
 }
 
-/* ABSOLUTE POSITIONED ELEMENTS */
+/* BUTTONS */
 .btn {
   position: absolute;
   left: 50%;
@@ -113,14 +115,12 @@ main {
   cursor: pointer;
   font-weight: 400;
   transition: all 0.2s;
-
-  background-color: white;
   background-color: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px);
-
   padding: 0.7rem 2.5rem;
   border-radius: 50rem;
   box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 .btn::first-letter {
@@ -148,6 +148,7 @@ main {
   outline: none;
 }
 
+/* DICE */
 .dice {
   position: absolute;
   left: 50%;
@@ -160,7 +161,6 @@ main {
 .player--winner {
   background-color: #2f2f2f;
 }
-
 .player--winner .name {
   font-weight: 700;
   color: #c7365f;
@@ -168,4 +168,82 @@ main {
 
 .hidden {
   display: none;
+}
+
+/* ---------------- MOBILE RESPONSIVE ---------------- */
+@media (max-width: 1024px) {
+  main {
+    width: 90%;
+    height: auto;
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
+  .player {
+    padding: 5rem 2rem;
+    width: 100%;
+  }
+  .btn {
+    position: static;
+    transform: none;
+    margin: 1rem auto;
+    display: block;
+    width: 70%;
+    max-width: 280px;
+  }
+  .dice {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 2rem auto;
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .name {
+    font-size: 2.5rem;
+  }
+  .score {
+    font-size: 5rem;
+  }
+  .current {
+    width: 80%;
+    padding: 1.5rem;
+  }
+  .current-score {
+    font-size: 2.5rem;
+  }
+  .btn {
+    font-size: 1.4rem;
+    padding: 0.7rem 1.5rem;
+  }
+  .dice {
+    height: 7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .name {
+    font-size: 2rem;
+  }
+  .score {
+    font-size: 3.5rem;
+  }
+  .current {
+    padding: 1rem;
+    font-size: 1.2rem;
+    width: 90%;
+  }
+  .current-score {
+    font-size: 2rem;
+  }
+  .btn {
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    width: 90%;
+  }
+  .dice {
+    height: 5rem;
+  }
 }
