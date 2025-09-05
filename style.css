@@ -200,6 +200,7 @@ main {
   .player {
     flex: 100%;
     padding: 1rem 2rem;
+    max-height: fit-content;
   }
 
   .name {
@@ -263,6 +264,7 @@ main {
 @media (max-width: 480px) {
   .player {
     padding: 1rem 1rem;
+    max-height: fit-content;
   }
 
   .name {
