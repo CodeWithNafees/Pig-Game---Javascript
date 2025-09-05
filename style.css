@@ -170,6 +170,13 @@ main {
   display: none;
 }
 
+.score-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 /* ================= MOBILE RESPONSIVE ================= */
 
 /* Tablets & small laptops */
@@ -177,15 +184,22 @@ main {
   main {
     width: 95%;
     max-height: 100vh;
-    /* height: 100vh; */
+    height: 95vh;
     flex-direction: column;
-    overflow: auto;
+    overflow-y: auto;
     padding: 1rem;
+    /* margin: 10px 0px; */
+  }
+  .score-card {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 22px;
   }
 
   .player {
     flex: 100%;
-    padding: 3rem 2rem;
+    padding: 1rem 2rem;
   }
 
   .name {
@@ -200,10 +214,14 @@ main {
   .current {
     width: 85%;
     padding: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .current-label {
     font-size: 1.4rem;
+    margin: 0;
   }
 
   .current-score {
@@ -216,7 +234,7 @@ main {
     top: auto;
     left: auto;
     transform: none;
-    margin: 2rem auto;
+    margin: 0.5rem auto;
     height: 7rem;
     display: block;
   }
@@ -226,8 +244,8 @@ main {
     position: relative;
     left: auto;
     top: auto;
-    transform: none;
-    margin: 1rem auto;
+    /* transform: none; */
+    margin: 1rem 19rem;
     display: block;
     font-size: 2rem; /* bigger text */
     padding: 1rem 3rem; /* more padding */
@@ -244,7 +262,7 @@ main {
 /* Phones */
 @media (max-width: 480px) {
   .player {
-    padding: 2rem 1rem;
+    padding: 1rem 1rem;
   }
 
   .name {
