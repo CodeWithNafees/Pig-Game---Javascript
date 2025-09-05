@@ -21,13 +21,14 @@ body {
   align-items: center;
   justify-content: center;
   padding: 1rem;
+  overflow: hidden;
 }
 
 /* LAYOUT */
 main {
   position: relative;
   width: 100rem;
-  height: 60rem;
+  height: 100vh;
   background-color: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(200px);
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
@@ -38,11 +39,12 @@ main {
 
 .player {
   flex: 50%;
-  padding: 9rem;
+  padding: 9rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   transition: all 0.75s;
+  justify-content: flex-start;
 }
 
 /* ELEMENTS */
@@ -133,10 +135,10 @@ main {
   top: 4rem;
 }
 .btn--roll {
-  top: 39.3rem;
+  bottom: 10rem;
 }
 .btn--hold {
-  top: 46.1rem;
+  bottom: 4rem;
 }
 
 .btn:active {
@@ -148,14 +150,15 @@ main {
   outline: none;
 }
 
-/* DICE */
+/* DICE - Centered between Player 1 and Player 2 */
 .dice {
   position: absolute;
+  top: 50%;
   left: 50%;
-  top: 16.5rem;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   height: 10rem;
   box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+  z-index: 5;
 }
 
 .player--winner {
@@ -173,23 +176,29 @@ main {
 /* ---------------- MOBILE RESPONSIVE ---------------- */
 @media (max-width: 1024px) {
   main {
-    width: 90%;
-    height: auto;
+    width: 95%;
+    height: 100vh;
     flex-direction: column;
     padding: 2rem 1rem;
+    overflow: hidden;
   }
+
   .player {
-    padding: 5rem 2rem;
+    padding: 4rem 2rem;
     width: 100%;
   }
+
   .btn {
     position: static;
     transform: none;
     margin: 1rem auto;
     display: block;
-    width: 70%;
-    max-width: 280px;
+    width: 80%;
+    max-width: 500px;
+    font-size: 1.8rem;
+    padding: 2rem;
   }
+
   .dice {
     position: relative;
     top: auto;
@@ -197,10 +206,14 @@ main {
     transform: none;
     margin: 2rem auto;
     display: block;
+    height: 8rem;
   }
 }
 
 @media (max-width: 768px) {
+  main {
+    height: 100vh;
+  }
   .name {
     font-size: 2.5rem;
   }
@@ -215,8 +228,8 @@ main {
     font-size: 2.5rem;
   }
   .btn {
-    font-size: 1.4rem;
-    padding: 0.7rem 1.5rem;
+    font-size: 1.6rem;
+    padding: 1.5rem;
   }
   .dice {
     height: 7rem;
@@ -224,6 +237,9 @@ main {
 }
 
 @media (max-width: 480px) {
+  main {
+    height: 100vh;
+  }
   .name {
     font-size: 2rem;
   }
@@ -239,11 +255,11 @@ main {
     font-size: 2rem;
   }
   .btn {
-    font-size: 1.2rem;
-    padding: 0.5rem 1rem;
+    font-size: 1.4rem;
+    padding: 1rem;
     width: 90%;
   }
   .dice {
-    height: 5rem;
+    height: 6rem;
   }
 }
