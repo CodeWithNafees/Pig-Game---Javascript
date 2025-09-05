@@ -21,14 +21,13 @@ body {
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  overflow: hidden;
 }
 
 /* LAYOUT */
 main {
   position: relative;
   width: 100rem;
-  height: 100vh;
+  height: 60rem;
   background-color: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(200px);
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
@@ -39,12 +38,11 @@ main {
 
 .player {
   flex: 50%;
-  padding: 9rem 2rem;
+  padding: 9rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   transition: all 0.75s;
-  justify-content: flex-start;
 }
 
 /* ELEMENTS */
@@ -135,10 +133,10 @@ main {
   top: 4rem;
 }
 .btn--roll {
-  bottom: 10rem;
+  top: 39.3rem;
 }
 .btn--hold {
-  bottom: 4rem;
+  top: 46.1rem;
 }
 
 .btn:active {
@@ -150,15 +148,14 @@ main {
   outline: none;
 }
 
-/* DICE - Centered between Player 1 and Player 2 */
+/* DICE */
 .dice {
   position: absolute;
-  top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  top: 16.5rem;
+  transform: translateX(-50%);
   height: 10rem;
   box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
-  z-index: 5;
 }
 
 .player--winner {
@@ -173,93 +170,108 @@ main {
   display: none;
 }
 
-/* ---------------- MOBILE RESPONSIVE ---------------- */
-@media (max-width: 1024px) {
+/* ================= MOBILE RESPONSIVE ================= */
+
+/* Tablets & small laptops */
+@media (max-width: 768px) {
   main {
     width: 95%;
-    height: 100vh;
+    height: auto;
     flex-direction: column;
-    padding: 2rem 1rem;
-    overflow: hidden;
+    padding: 1rem;
   }
 
   .player {
-    padding: 4rem 2rem;
-    width: 100%;
+    flex: 100%;
+    padding: 3rem 2rem;
   }
 
-  .btn {
-    position: static;
-    transform: none;
-    margin: 1rem auto;
-    display: block;
-    width: 80%;
-    max-width: 500px;
-    font-size: 1.8rem;
-    padding: 2rem;
+  .name {
+    font-size: 2.6rem;
   }
 
+  .score {
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .current {
+    width: 85%;
+    padding: 1.2rem;
+  }
+
+  .current-label {
+    font-size: 1.4rem;
+  }
+
+  .current-score {
+    font-size: 2.6rem;
+  }
+
+  /* Dice centered between players */
   .dice {
     position: relative;
     top: auto;
     left: auto;
     transform: none;
     margin: 2rem auto;
-    display: block;
-    height: 8rem;
-  }
-}
-
-@media (max-width: 768px) {
-  main {
-    height: 100vh;
-  }
-  .name {
-    font-size: 2.5rem;
-  }
-  .score {
-    font-size: 5rem;
-  }
-  .current {
-    width: 80%;
-    padding: 1.5rem;
-  }
-  .current-score {
-    font-size: 2.5rem;
-  }
-  .btn {
-    font-size: 1.6rem;
-    padding: 1.5rem;
-  }
-  .dice {
     height: 7rem;
+    display: block;
+  }
+
+  /* Bigger buttons */
+  .btn {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    margin: 1rem auto;
+    display: block;
+    font-size: 2rem; /* bigger text */
+    padding: 1rem 3rem; /* more padding */
+    min-width: 70%; /* wider button */
+  }
+
+  .btn-container {
+    width: 100%;
+    text-align: center;
+    margin-top: 1.5rem;
   }
 }
 
+/* Phones */
 @media (max-width: 480px) {
-  main {
-    height: 100vh;
+  .player {
+    padding: 2rem 1rem;
   }
+
   .name {
     font-size: 2rem;
   }
+
   .score {
-    font-size: 3.5rem;
+    font-size: 4rem;
   }
+
   .current {
-    padding: 1rem;
-    font-size: 1.2rem;
     width: 90%;
+    padding: 1rem;
   }
+
   .current-score {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
-  .btn {
-    font-size: 1.4rem;
-    padding: 1rem;
-    width: 90%;
-  }
+
   .dice {
     height: 6rem;
+    margin: 1.5rem auto;
+  }
+
+  /* Extra large touch-friendly buttons */
+  .btn {
+    font-size: 1.8rem;
+    padding: 1.2rem 3.5rem;
+    min-width: 80%;
+    border-radius: 1rem;
   }
 }
